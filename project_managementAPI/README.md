@@ -27,6 +27,7 @@ Implemented user model & roles (accounts)
 Added AUTH_USER_MODEL = 'accounts.User' to seeting.py
 Created registration serializer & view
 Added accounts/view.py
+Added accounts/urls.py
 
 
 
