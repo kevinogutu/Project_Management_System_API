@@ -26,7 +26,7 @@ The upcoming development goals include:
 Implemented user model & roles (accounts)
 Added AUTH_USER_MODEL = 'accounts.User' to seeting.py
 Created registration serializer & view
- 
+Added accounts/view.py
 
 
 
