@@ -22,6 +22,13 @@ The upcoming development goals include:
 1.	Implementing the accounts app with a custom user model and role-based access.
 2.	Creating the projects and tasks models and running migrations.
 3.	Adding serializers and viewsets to handle API functionality 
+12/14/2025
+Implemented user model & roles (accounts)
+Added AUTH_USER_MODEL = 'accounts.User' to seeting.py
+Created registration serializer & view
+ 
+
+
 
 Project Goals
 The final API will include:
