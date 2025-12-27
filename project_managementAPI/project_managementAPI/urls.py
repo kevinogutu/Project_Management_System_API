@@ -14,9 +14,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.urls import path, include
 from django.contrib import admin
-from django.urls import path
+from rest_framework.routers import DefaultRouter
+from projects.views import ProjectViewSet
+from tasks.views import TaskViewSet
+from accounts import urls as accounts_urls
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+router = DefaultRouter()
+router.register(r'projects', ProjectViewSet, basename='project')
+router.register(r'tasks', TaskViewSet, basename='task')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/auth/', include('rest_framework.urls')),  # Browsable login (optional)
+    path('api/', include(router.urls)),
+    path('api/accounts/', include(accounts_urls)),
+    # JWT auth endpoints:
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
